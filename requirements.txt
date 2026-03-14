@@ -1,0 +1,25 @@
+# DeepEarth V2 — Python Dependencies
+
+# Core ML
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+Pillow>=9.5.0
+
+# Backend API
+fastapi>=0.100.0
+uvicorn[standard]>=0.22.0
+pydantic>=2.0.0
+python-multipart>=0.0.6
+
+# Satellite Data
+earthengine-api>=0.1.370
+
+# Monitoring
+schedule>=1.2.0
+
+# Utilities
+python-dotenv>=1.0.0
+geopy>=2.3.0
