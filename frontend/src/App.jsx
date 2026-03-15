@@ -226,7 +226,7 @@ export default function App() {
 
   if (activePage === 'dashboard') {
     return (
-      <div className="h-screen flex flex-col">
+      <div className="h-screen flex flex-col bg-paradise-bg">
         <TopNavbar activePage={activePage} onPageChange={setActivePage} />
         <Dashboard onBack={() => setActivePage('map')} />
       </div>
@@ -234,7 +234,7 @@ export default function App() {
   }
 
   return (
-    <div className="h-screen flex flex-col bg-gfw-bg">
+    <div className="h-screen flex flex-col bg-paradise-bg">
       <TopNavbar activePage={activePage} onPageChange={setActivePage} />
       <div className="flex flex-1 overflow-hidden relative">
         <Sidebar activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
@@ -288,7 +288,7 @@ export default function App() {
             <span>Google Earth Engine</span>
             <span><strong>CARTO</strong></span>
             <span>© OpenStreetMap</span>
-            <span>DeepEarth V2 — AI Environmental Monitoring</span>
+            <span>deepearth v2 — ai environmental monitoring</span>
           </div>
         </div>
       </div>

@@ -1,56 +1,40 @@
 import React from 'react';
-import { SIDEBAR_ITEMS, SIDEBAR_BOTTOM } from '../utils/constants';
+import { SIDEBAR_ITEMS } from '../utils/constants';
 
+/**
+ * Sidebar — Green Paradise organic style
+ * Dark forest background · circular icon buttons · leaf accent on active
+ */
 export default function Sidebar({ activeCategory, onCategoryChange }) {
   return (
-    <aside className="w-[50px] bg-gfw-sidebar flex flex-col items-center py-2 z-30 shrink-0">
-      {/* Top Category Icons */}
-      <div className="flex flex-col items-center gap-0.5">
-        {SIDEBAR_ITEMS.map((item) => (
+    <div className="w-[54px] shrink-0 flex flex-col items-center py-3 gap-1.5 z-20 overflow-y-auto
+                    bg-paradise-forest border-r border-paradise-forest">
+      {SIDEBAR_ITEMS.map(item => {
+        const isActive = activeCategory === item.id;
+        return (
           <button
             key={item.id}
             id={`sidebar-${item.id}`}
             onClick={() => onCategoryChange(item.id)}
-            className={`w-full px-1 py-2.5 flex flex-col items-center gap-0.5 text-center
-              transition-all duration-150 relative group
-              ${activeCategory === item.id
-                ? 'bg-white/10 text-white'
-                : 'text-white/60 hover:text-white hover:bg-white/5'
-              }`}
+            title={item.label}
+            className={`relative w-[42px] h-[42px] rounded-2xl flex flex-col items-center justify-center
+                       transition-all duration-300 group
+                       ${isActive
+                         ? 'bg-paradise-green text-white shadow-organic'
+                         : 'bg-transparent text-white/50 hover:bg-white/8 hover:text-white/80'
+                       }`}
           >
-            {activeCategory === item.id && (
-              <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-forest-500 rounded-r" />
+            {/* Active indicator dot */}
+            {isActive && (
+              <div className="absolute -left-[7px] w-[3px] h-5 rounded-r-full bg-paradise-mint" />
             )}
-            <span className="text-base leading-none">{item.icon}</span>
-            <span className="text-[7px] font-semibold tracking-wider leading-tight uppercase">
-              {item.label}
-            </span>
-            {item.hasNotif && (
-              <span className="absolute top-1 right-1 w-2 h-2 bg-forest-500 rounded-full" />
-            )}
-          </button>
-        ))}
-      </div>
-
-      {/* Divider */}
-      <div className="w-6 h-px bg-white/20 my-3" />
-
-      {/* Bottom Links */}
-      <div className="flex flex-col items-center gap-0.5 mt-auto">
-        {SIDEBAR_BOTTOM.map((item) => (
-          <button
-            key={item.id}
-            id={`sidebar-${item.id}`}
-            className="w-full px-1 py-2.5 flex flex-col items-center gap-0.5
-              text-white/50 hover:text-white hover:bg-white/5 transition-all text-center"
-          >
-            <span className="text-base leading-none">{item.icon}</span>
-            <span className="text-[7px] font-semibold tracking-wider uppercase">
-              {item.label}
+            <span className="text-[14px] leading-none">{item.icon}</span>
+            <span className="text-[7px] mt-0.5 leading-tight font-medium tracking-wider uppercase text-center px-0.5 truncate w-full">
+              {item.label.split(' ')[0]}
             </span>
           </button>
-        ))}
-      </div>
-    </aside>
+        );
+      })}
+    </div>
   );
 }
