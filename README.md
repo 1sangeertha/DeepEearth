@@ -200,7 +200,7 @@ deepearth
 ### Clone Repository
 
 ```
-git clone https://github.com/mahitha-chippa4/deepearth.git
+git clone https://github.com/1sangeetha/DeepEarth.git
 cd deepearth
 ```
 
@@ -278,9 +278,5 @@ GMAIL_APP_PASSWORD=your_app_password
 
 # 👩‍💻 Author
 
-**Mahitha Chippa**
+**Badavath Sangeetha**
 
-
----
-
-⭐ If you like this project, consider **starring the repository!**
